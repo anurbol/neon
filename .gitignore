@@ -10,3 +10,4 @@ cli/lib
 test/cli/lib
 npm-debug.log
 rls*.log
+config.bat
