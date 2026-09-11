@@ -10,4 +10,7 @@ cli/lib
 test/cli/lib
 npm-debug.log
 rls*.log
-config.bat
+
+# Incident containment: keep local environment secrets out of Git.
+.env
+.env.*
